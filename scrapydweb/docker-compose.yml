@@ -1,0 +1,10 @@
+version: "2.0"
+services:
+   scrapydweb:
+     build: .
+     ports:
+       - "5656:5050"
+     volumes:
+       - .:/opt
+     environment:
+       - TZ=Asia/Shanghai

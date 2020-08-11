@@ -1,0 +1,17 @@
+version: "2.0"
+services:
+   scrapyd:
+     build: .
+     image: scrapyd
+     volumes:
+       - .:/opt
+     environment:
+       - TZ=Asia/Shanghai
+   nginx:
+     build: ./nginx
+     ports:
+       - "6886:6801"
+     links:
+       - "scrapyd:scrapyd"
+     environment:
+       - TZ=Asia/Shanghai
