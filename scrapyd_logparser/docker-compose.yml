@@ -3,12 +3,14 @@ services:
    scrapyd:
      build: .
      image: scrapyd
+     restart: always
      volumes:
        - .:/opt
      environment:
        - TZ=Asia/Shanghai
    nginx:
      build: ./nginx
+     restart: always
      ports:
        - "6886:6801"
      links:
